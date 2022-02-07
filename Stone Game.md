@@ -33,4 +33,47 @@
    
    ## Code
    ```
+    class Solution {
+      int[][] dp;
+      public boolean stoneGame(int[] piles) {
+          dp=new int[piles.length][piles.length];
+          System.out.println(helper(piles,0,piles.length-1));
+          return true;
+      }
+
+      public int helper(int[] arr,int l,int r) {
+          if(l>=r) return 0;
+          if(dp[l][r]!=0) return dp[l][r];
+
+          return dp[l][r]=Math.max(
+              arr[l]+Math.min(helper(arr,l+2,r),helper(arr,l+1,r-1)),
+              arr[r]+Math.min(helper(arr,l+1,r-1),helper(arr,l,r-2)));
+      }
+    }
+   ```
+   ----------------- ANOTHER SOLUTION FROM DISSCUSSION ----------------- <br/>
+   this is because in my code i think dp isn't working well
+   ```
+   public static int gameOnIntTD(int[] piles, int si, int ei, boolean turn, int[][] strg){
+      if(si > ei){
+        return 0;
+      }
+
+      // If the Recursion has Calculated the Answer  
+      if(strg[si][ei] > 0){
+        return strg[si][ei]; // return that Stored Answer
+      }
+
+      if(turn){ // If it is Alex's Turn
+        int rr1 = gameOnIntTD(piles, si + 1,ei,false, strg) + piles[si]; 
+        int rr2 = gameOnIntTD(piles, si,ei - 1,false, strg) + piles[ei]; 
+        strg[si][ei] = Math.max(rr1, rr2); // Storing the max ans at particular indices
+        return strg[si][ei];
+      }
+      // If it is Lee's Turn
+      int rr1 = gameOnIntTD(piles, si + 1, ei, true, strg) - piles[si]; //Same logic as above
+      int rr2 = gameOnIntTD(piles, si, ei - 1, true, strg) - piles[ei];//Same logic as above
+      strg[si][ei] = Math.min(rr1, rr2); //Storing the answer at particular indices
+      return strg[si][ei];
+    }
    ```
