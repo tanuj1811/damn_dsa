@@ -7,10 +7,30 @@ There are mainly 5 types of bitwise operation we usually used in dsa and cp :-
 * Right Shift ('<<')
 * Left Shift('>>')
 
-As we already study about AND, OR and XOR and that's is but we will how to use them in different ques ? in the upcoming blogs 😊
+As we already study about AND, OR and XOR and that's is but we will study how to use them in different ques ? in the upcoming blogs 😊
 ![image](https://fresh2refresh.com/wp-content/uploads/2013/10/Truth-table-2.png)
 
 Some common tips 
+### XOR
+as we all know xor of same number is 0.
+
+There is one famous question which is solved using above statement
+
+#### Statement
+  Given an array of integers A, every element appears twice except for one. Find that single one.
+Native approach is using freq table or hashtable with take O(n) space.
+Best approach is xor of all number because x^x = 0 and a^b=b^a So, we can twice number eliminate themselves. The left number is our ans
+
+```
+  public int singleNumber(final List<Integer> A) {
+        int ans=0;
+        for(int a:A)
+            ans^=a;
+        return ans;
+    }
+
+```
+
 
 #### Right Shift and Left Shift
 Right shift of any no means dividing that number by 2 and Left shift of any number means multiplying by 2
