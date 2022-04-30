@@ -13,7 +13,7 @@ In Java, the -ve number is stored as 2's complements representation
 
 Representation of -x : 2<sup>32</sup>-x
 
-Example: suppose given bits = 111..1.1010 === 2<sup>32</sup>-1-5 (0...00101 = inverse of given bits) === 2<sup>32</sup>-6
+Example: suppose given bits = 111..1.1010 === 2<sup>32</sup>-1-5 (-5 coz0...00101 = inverse of given bits, -1 coz its it was in 2's complement) === 2<sup>32</sup>-6
 
 So, x=-6 
 
