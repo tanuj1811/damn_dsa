@@ -1,6 +1,25 @@
 ## BITS MANIPULATION
 
-There are mainly 5 types of bitwise operation we usually used in dsa and cp :-
+### How bit stores in the backend in java 
+Java assign 32 bits to every integer.
+and Most significant bit(msb) indicate wheather assigned number is -ve or +ve. if msb is 1 then number is -ve
+
+example: 1 = 0000...01 and -1 = 1111....111
+
+**Note** Thats why the range is -2<sup>31</sup> to 2<sup>31</sup>-1 
+
+### Negative Number in bits
+In Java, the -ve number is stored as 2's complements representation
+
+Representation of -x : 2<sup>32</sup>-x
+
+Example: suppose given bits = 111..1.1010 === 2<sup>32</sup>-1-5 (0...00101 = inverse of given bits) === 2<sup>32</sup>-6
+
+So, x=-6 
+
+### Types of Bit Operation
+There are mainly 6 types of bitwise operation we usually used in dsa and cp :-
+* Negation('~')
 * AND ('&')
 * OR ('|')
 * XOR('^')
@@ -34,6 +53,8 @@ Best approach is xor of all number because x^x = 0 and a^b=b^a So, we can twice 
 
 #### Right Shift and Left Shift
 Right shift of any no means dividing that number by 2 and Left shift of any number means multiplying by 2
+
+** Note ** All this dividing and multiplying 
 
 let take exapmle, n=11(1101)
 if we one right shift the operator
