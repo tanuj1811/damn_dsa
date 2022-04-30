@@ -36,7 +36,7 @@ for(int i=5;i*i<n;i+=6) { //i+=6 coz of 1 point above
 // TC-> O(less than √n )
 ```
 
-#### Find all prime factors of an number
+### Find all prime factors of an number
 We can achieve O(log n) for all composite numbers by consecutive dividing of the given number by an integer starting from 2 representing current factor of that number. This approach works on the fact that all composite numbers have factors in pairs other than 1 or number itself like 6=3 x 2 and 9=3 x 3
 
 For example, We can divide 12 by 2 two times and remove that factors from 12 to get 3 thus making sure that composite number 4 (multiple of 2) does not occur at any later point of time.
@@ -60,5 +60,5 @@ if we have a big number that is not divisible by any value of c=2 to n-1 means i
 ```
 
 
-#### Composite Number 
+### Composite Number 
 those who are not prime number
