@@ -12,7 +12,8 @@ public int[] twooddoccruing(int[] ar) { // ar = [10, 20, 30, 20]
   int xor=0;
   for(int a: ar) xor^=a;
  
-  //xor will always eq to the xor of two odd occurance coz other will cancel out each other means xor = 10^30 = 1010^1110 = 0100 === 4
+  //xor will always eq to the xor of two odd occurance coz other will cancel out each other means 
+  //xor = 10^30 = 1010^1110 = 0100 === 4
   
   // bone of ques is to get elements from xor i.e get 10 and 30 from 4
   
