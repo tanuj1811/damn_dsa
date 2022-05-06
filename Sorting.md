@@ -122,7 +122,42 @@ Given an array of integers. Find the Inversion Count in the array.
 Formally, two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j.
 
 ```
+public int inversionCount(int[] a) {
+  return mergeSort(a);
+}
 
+public int mergeSort(int[] a) {
+    if(l>=r) return 0;
+    
+    int mid = (l+r)>>1;
+    return mergeSort(a,l,mid) + mergeSort(a,mid+1,r) + merge(a,l,mid+1,r);
+}
+
+public int merge(int arr[], int start, int mid, int end) {
+
+  int inversions = 0, i = start, j = mid, k = 0;
+	int temp[end - start + 1];
+
+	while(i < mid && j <= end){ 
+		if(arr[i] <= arr[j])
+			temp[k++] = arr[i++];
+		else {
+			temp[k++] = arr[j++];
+			inversions += mid - i; // this count the inversion
+		}
+	}
+
+	while(i < mid) 
+		temp[k++] = arr[i++];
+
+	while(j <= end) 
+		temp[k++] = arr[j++];
+
+	for(i = start; i <= end; i++)
+		arr[i] = temp[i - start];
+		
+	return inversions;
+}
 ```
 
 
