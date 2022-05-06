@@ -113,6 +113,9 @@ public void insertioSort(int[] a) {
 }
 ```
 
+## Quick Sort
+https://github.com/tanuj1811/DSA-Memorization/blob/main/Quick%20Sort%20and%20Partition.md
+
 # Problems
 
 ## Count Inversion - Imp.
