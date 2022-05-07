@@ -59,7 +59,7 @@ and it fills 0 if number is +ve eg: 3>>1 = 000...011 >> 1 = 0000...001 === 1.
 ### Unsigned Right Shift ('>>>')
 When we shift any number to the right, the vacant leftmost position is filled with 0 always.
 
-#### Right Shift and Left Shift
+### Right Shift and Left Shift
 Right shift of any no means dividing that number by 2 and Left shift of any number means multiplying by 2
 
 **Note** All this dividing and multiplying are for smaller shift number or smaller integer. Larger integer leads overflow of that number 
@@ -78,9 +78,13 @@ Left Shift of n by x (n<<x) equals to <b>n*(2<sup>x</sup>)</b>.
 
 Similarly, Right Shift of n by x (n>>x) equals to n/2<sup>x</sup>.
 
-That's all about basic 
+### Get Quotent and Remainder for power of 2 e.g-2,4,8,16,... 
+Hey everyone!! as we all know playing with bit-manupulation is like magic. Today i learn about one of the magic i.e
+If we divide anything with power of 2 (e.g :- 2,4,8,16,32....) we can calcuate remainder and quotent in 1s.
+Lemme tell u how ? 
 
-Let's take some ques where can apply all 5 logics
+1st : for e.g => n=15 (1111) <br/>
+15/2 = 7(quotent), 1(remainder)<br/>
+![image](https://user-images.githubusercontent.com/54256549/153720795-14b7c44e-3237-47a1-b86f-96d7cbf660cf.png)
 
-
-That's all...😊
+//-arly for 8,32,64,128
