@@ -1,3 +1,6 @@
+# LCM and HCF
+![image](https://user-images.githubusercontent.com/54256549/167237499-27f8576a-ab7f-40cf-a386-33bdfad2eeb1.png)
+
 ## Highest Common Factor / Greatest Common Divisor
 
 1. They Both are same
