@@ -109,3 +109,43 @@ Recursion with Memorisation
         
     }
 ```
+
+# Longest Common Subsequence(LCS)
+
+Given an array of integers, find the length of the longest (strictly) increasing subsequence from the given array.
+
+Input:
+N = 16
+A[]={0,8,4,12,2,10,6,14,1,9,5
+     13,3,11,7,15}
+Output: 6
+Explanation:Longest increasing subsequence
+0 2 6 9 13 15, which has length 6
+
+
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://practice.geeksforgeeks.org/problems/longest-increasing-subsequence-1587115620/1#<br/>
+  Genre : DP || Memorization  <br/>
+
+## Solution: 
+DP
+```
+      public static int longestSubsequence(int size, int a[]) {
+        int[] dp = new int[size]; //dp[i] signifies that what the max longest subsequence if we incl ith element
+        dp[0]=1;
+        for(int i=1;i<size;i++) {
+            for(int j=0;j<i;j++) {
+                if(a[j]<a[i]) dp[i]=Math.max(dp[i],dp[j]);
+            }
+            dp[i]+=1;
+        }
+        int ret=0;
+        for(int b:dp) ret=Math.max(ret,b);
+            // System.out.print(b+" ");
+        return ret;
+        
+        
+    }
+```
+TC - O(n<sup>2</sup>)
