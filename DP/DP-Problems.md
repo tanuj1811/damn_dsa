@@ -202,14 +202,21 @@ Explanation:Longest decreasing subsequence
 ## Solution: 
 
 ```
-public static int LDS(int n, int a[]) {
-  int[] dp= new int[n];
-  dp[n-1]=1;
-  for(int i=n-2;i>=0;i--) {
-    for(int j=n-1;j>i;j--) {
-      if(a[j]<a[i]) dp[i]=Math.max(dp[i],dp[j]);
-    }
-    dp[i]+=1;
-  }
-}
+public static int LDS(int[] arr) {
+		int n=arr.length;
+		int[] dp= new int[n];
+		dp[n-1]=1;
+		
+		for(int i=n-2;i>=0;i--) {
+			for(int j=n-1;j>i;j--) {
+				if(arr[i] > arr[j]) dp[i]=Math.max(dp[i],dp[j]);
+			}
+			dp[i]++;
+		}
+		int ret=dp[0];
+		for(int a:dp)
+			ret=Math.max(ret,a);
+		return ret;
+		
+	}
 ```
