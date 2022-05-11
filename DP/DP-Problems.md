@@ -149,3 +149,37 @@ DP
     }
 ```
 TC - O(n<sup>2</sup>)
+
+**we can solve this with O(n log(n)) using binery search**
+
+DP with binery search
+```
+      public static int longestSubsequence(int size, int a[]) {
+        int[] tail = new int[size]; //tail[i] signifies highest smallest LCS till ith index
+        int len=1;
+        tail[0]=a[0];
+        for(int i=1;i<size;i++) {
+            if(a[i] > tail[len-1]) {
+              tail[len]=a[i];
+              len++;
+            } else {
+              int c = upper_bound(tail,0,len-1,a[i]);
+              tail[c]=a[i];
+            }
+        }
+        return len;
+    }
+    
+        static int upper_bound(int tail[], int l, int r, int key) { 
+            while (r > l) {         
+                int m = l + (r - l) / 2; 
+                if (tail[m] >= key) 
+                    r = m; 
+                else
+                    l = m+1; 
+            } 
+      
+            return r; 
+        } 
+
+```
