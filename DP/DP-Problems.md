@@ -110,7 +110,7 @@ Recursion with Memorisation
     }
 ```
 
-# Longest Common Subsequence(LCS)
+# Longest Increasing Subsequence(LIS)
 
 Given an array of integers, find the length of the longest (strictly) increasing subsequence from the given array.
 
@@ -154,7 +154,7 @@ TC - O(n<sup>2</sup>)
 
 DP with binery search
 ```
-      public static int longestSubsequence(int size, int a[]) {
+      public static int LIS(int size, int a[]) {
         int[] tail = new int[size]; //tail[i] signifies highest smallest LCS till ith index
         int len=1;
         tail[0]=a[0];
@@ -182,4 +182,34 @@ DP with binery search
             return r; 
         } 
 
+```
+# Longest Decreasing Subsequence(LCS)
+
+Given an array of integers, find the length of the longest (strictly) decreasing subsequence from the given array.
+
+Input:
+A[]={5, 0, 3, 2, 9}
+Output: 3
+Explanation:Longest decreasing subsequence
+5, 3, 2, which has length 3
+
+
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://www.codingninjas.com/codestudio/problems/longest-decreasing-subsequence_800300<br/>
+  Genre : DP || Memorization || Binery Search <br/>
+
+## Solution: 
+
+```
+public static int LDS(int n, int a[]) {
+  int[] dp= new int[n];
+  dp[n-1]=1;
+  for(int i=n-2;i>=0;i--) {
+    for(int j=n-1;j>i;j--) {
+      if(a[j]<a[i]) dp[i]=Math.max(dp[i],dp[j]);
+    }
+    dp[i]+=1;
+  }
+}
 ```
