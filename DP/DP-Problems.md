@@ -51,7 +51,7 @@ Recursion With Memo.
     }
 ```
 
-# Longest Common Subsequence(LCS)
+# Coin Change
 
 Given a value N, find the number of ways to make change for N cents, if we have infinite supply of each of S = { S1, S2, .. , SM } valued coins
 
@@ -219,4 +219,52 @@ public static int LDS(int[] arr) {
 		return ret;
 		
 	}
+```
+
+# Edit Distance
+
+Given two strings s and t. Return the minimum number of operations required to convert s to t.
+The possible operations are permitted:
+
+Insert a character at any position of the string.
+Remove any character from the string.
+Replace any character from the string with any other character.
+ 
+```
+Input: 
+s = "geek", t = "gesek"
+Output: 1
+Explanation: One operation is required 
+inserting 's' between two 'e's of str1.
+```
+
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://leetcode.com/problems/edit-distance/<br/>
+  Genre : DP || Memorization  <br/>
+
+## Solution:
+
+**Base Cases** : if strings length are unequal then only two possible are there wheater delete from bigger string or insert it into short string both take same unit of time i.e |n-m|
+```
+class Solution {
+    public int minDistance(String s, String t) {
+        int n=s.length();
+        int m=t.length();
+        int[][] dp = new int[n+1][m+1];
+        for(int i=0;i<=n;i++) dp[i][0]=i; //base case
+        for(int i=0;i<=m;i++) dp[0][i]=i;//base case
+        for(int i=1;i<=n;i++) {
+            for(int j=1;j<=m;j++) {
+                if(s.charAt(i-1)==t.charAt(j-1))
+                    dp[i][j]=dp[i-1][j-1];
+                else {
+                    dp[i][j]=1+Math.min(dp[i-1][j-1],Math.min(dp[i-1][j],dp[i][j-1])); //replace , delete, insert
+                }
+            }
+        }
+        return dp[n][m];
+    
+    }
+}
 ```
