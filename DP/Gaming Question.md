@@ -62,7 +62,7 @@ class Solution {
                 }
             }
         }
-        return dp[0][nums.length-1]>= (sum/2.0);
+        return dp[0][nums.length-1];
     }
 }
 ```
