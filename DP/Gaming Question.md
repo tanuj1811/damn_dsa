@@ -1,0 +1,71 @@
+# Optimal Strategy for a Game 
+
+You are given an array A of size N. The array contains integers and is of even length. The elements of the array represent N coin of values V1, V2, ....Vn. You play against an opponent in an alternating way.
+
+In each turn, a player selects either the first or last coin from the row, removes it from the row permanently, and receives the value of the coin.
+
+You need to determine the maximum possible amount of money you can win if you go first.
+Note: Both the players are playing optimally.
+
+```
+N = 4
+A[] = {5,3,7,10}
+Output: 15
+Explanation: The user collects maximum
+value as 15(10 + 5)
+```
+
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://practice.geeksforgeeks.org/problems/optimal-strategy-for-a-game-1587115620/1/<br/>
+  Genre : DP || Memorization  <br/>
+
+## Solution: 
+
+Recursion with Memo
+```
+class Solution {
+    int[][] dp;
+    public int maximumAmount(int[] nums) {
+        dp=new int[nums.length][nums.length];
+        Arrays.stream(dp).forEach(a -> Arrays.fill(a, -1));
+        return rec(nums,0,nums.length-1);
+    }
+    
+    public int rec(int[] a,int i,int j) {
+        if(i>j) return 0;
+        if(i+1==j) return Math.max(a[i],a[j]);
+        if(dp[i][j]!=-1) return dp[i][j];
+        int starting = a[i]+Math.min(rec(a,i+2,j),rec(a,i+1,j-1)); // we choose a[i] 
+        int end = a[j]+Math.min(rec(a,i ,j-2),rec(a,i+1,j-1));
+        return dp[i][j]=Math.max(starting, end);
+    }
+}
+```
+
+
+DP Solution
+```
+class Solution {
+    public int maximumAmount(int[] nums) {
+        int[][] dp=new int[nums.length][nums.length];
+        Arrays.stream(dp).forEach(a -> Arrays.fill(a, -1));
+        
+        for(int gap = 0;gap<nums.length;gap+=1) {
+            for(int i=0,j=gap;j<nums.length;i++,j++) {
+                if(gap == 1) dp[i][j] = Math.max(nums[i],nums[j]);
+                else if(gap ==0) dp[i][j] = nums[i];
+                else {
+                    int starting = nums[i]+Math.min(dp[i+2][j],dp[i+1][j-1]);
+                    int ending = nums[j]+Math.min(dp[i][j-2],dp[i+1][j-1]);
+                    dp[i][j] = Math.max(starting,ending);
+                }
+            }
+        }
+        return dp[0][nums.length-1]>= (sum/2.0);
+    }
+}
+```
+![image](https://user-images.githubusercontent.com/54256549/168476717-adeb3013-6943-40c4-9aa5-c0373dac978a.png)
+
+
