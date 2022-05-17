@@ -324,7 +324,55 @@ static int matrixMultiplication(int n, int arr[])
     }
 ```
 
+# Subset Sum 
+
+Given an array of non-negative integers, and a value sum, determine if there is a subset of the given set with sum equal to given sum. 
 
 
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://practice.geeksforgeeks.org/problems/subset-sum-problem-1611555638/1/<br/>
+  Genre : DP || Memorization  <br/>
+
+## Solution: 
+
+**DP**
+```
+class Solution{
+    static Boolean isSubsetSum(int n, int arr[], int sum){
+        boolean[][] dp = new boolean[n+1][sum+1];
+        for(int i=0;i<=n;i++) dp[i][0] = true;
+        
+        for(int i=1;i<=n;i++) {
+            for(int j=1;j<=sum;j++) {
+                if(j>=arr[i-1])
+                    dp[i][j]=dp[i-1][j-arr[i-1]] || dp[i-1][j];
+                else dp[i][j] = dp[i-1][j];
+            }
+        }
+        
+        return dp[n][sum];
+	// return rec(arr, n-1, sum)
+    }
+    public static boolean rec(int[] a, int i, int sum) {
+        if(i==0) return sum==0?true:false;
+        
+        return rec(a,i-1,sum-a[i]) || rec(a,i-1,sum);
+    }
+}
+```
+
+**Greedy**
+```
+public boolean isSubsetSum(int[] arr, int sum){
+        // code here 
+        Arrays.sort(arr);
+        int tot = 0;
+        for(int i=0;i<arr.size() && arr[i]<=sum; i++){
+            tot+=arr[i];
+        }
+        return tot>=sum;
+}
+```
 
 
