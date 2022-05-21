@@ -207,3 +207,80 @@ class Solution {
     }
 }
 ```
+
+# Reverse the LinkedList II
+
+You are given the head of a singly linked-list. The list can be represented as:
+```
+L0 → L1 → … → Ln - 1 → Ln
+```
+Reorder the list to be on the following form:
+```
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+```
+You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+
+```
+Input: head = [1,2,3,4,5]
+Output: [1,5,2,4,3]
+```
+
+## About Problem 
+  Difficulty : Medium<br/>
+  Problem link: https://leetcode.com/problems/reorder-list/ br/>
+  Genre : Brain || visualization  <br/>
+
+## Solution: 
+```
+class Solution {
+    public void reorderList(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head.next;
+        while(fast!=null && fast.next!=null) {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        ListNode tmp = slow.next;
+        slow.next=null;
+        ListNode first = head;
+            
+        //reverse the second
+        ListNode second = reverseList(tmp);
+        
+        //merge
+        ListNode res = new ListNode();
+        head=res;
+        while(second!=null && first!=null) {
+            res.next = first;
+            res=res.next;
+            first = first.next;
+            res.next=second;
+            res=res.next;
+            second=second.next;
+            
+        }
+        while(second!=null) {
+            res.next=second;
+            second=second.next;
+            res=res.next;
+        }
+        while(first!=null) {
+            res.next=first;
+            first=first.next;
+            res=res.next;
+        }
+        
+        
+    }
+    
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null)
+            return head;
+        ListNode nextNode=head.next;
+        ListNode newHead=reverseList(nextNode);
+        nextNode.next=head;
+        head.next=null;
+        return newHead;
+    }
+}
+```
