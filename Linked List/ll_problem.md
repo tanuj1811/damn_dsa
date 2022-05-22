@@ -279,7 +279,7 @@ class Solution {
 }
 ```
 
-# Reverse the LinkedList II
+# Reorder the LinkedList II
 
 You are given the head of a singly linked-list. The list can be represented as:
 ```
@@ -409,3 +409,4 @@ class Solution {
     }
 }
 ```
+
