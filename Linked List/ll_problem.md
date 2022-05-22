@@ -10,6 +10,77 @@ public class ListNode {
  }
  */
 ```
+
+# Sort the Linked List
+```
+Input: head = [4,2,1,3]
+Output: [1,2,3,4]
+```
+
+## About Problem 
+  Difficulty : Easy<br/>
+  [Problem link](https://leetcode.com/problems/sort-list/)
+  
+  Genre : MergeSort <br/>
+## Solution
+```
+class Solution {
+    public ListNode sortList(ListNode head) {
+        return divide(head);
+    }
+    
+    public ListNode divide(ListNode head) {
+        if(head==null || head.next==null) return head;
+        ListNode mid = getMid(head);
+        ListNode left=divide(head);
+        ListNode right=divide(mid);
+        return merge(left,right);
+        // return right;
+    }
+    
+    public ListNode merge(ListNode l1,ListNode l2) {
+        ListNode ans=new ListNode(-1);
+        ListNode ret=ans;
+        
+        while(l1!=null && l2!=null) {
+            if(l1.val < l2.val) {
+                ans.next=new ListNode(l1.val);
+                l1=l1.next;
+            } else {
+                ans.next=new ListNode(l2.val);
+                l2=l2.next;
+            }
+            ans=ans.next;
+        }
+        while(l1!=null) {
+            ans.next=new ListNode(l1.val);
+            l1=l1.next;
+            ans=ans.next;
+        }
+        while(l2!=null) {
+            ans.next=new ListNode(l2.val);
+            l2=l2.next;
+            ans=ans.next;
+        }
+        return ret.next;
+    }
+    
+    public ListNode getMid(ListNode head) {
+        ListNode slow=new ListNode(-1,head),fast=head;
+        while(fast!=null&&fast.next!=null) {
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        ListNode ret=slow.next;
+        slow.next=null;
+        return ret;
+    }
+}
+```
+  
+  
+  
+  
 # Reverse the LinkedList
 
 ```
