@@ -13,3 +13,12 @@ For an individual module, it is important to record <br>
 (5) what special algorithms were used, if any, and <br>
 (6) acknowledge outside sources for ideas and algorithms. <br>
 <hr>
+
+
+## Steps For Contribution
+
+    1. Fork this repo
+    2. Star this repo
+    3. Build Successfully on Local Machine
+    4. Commit the code
+    5. Make pull request
