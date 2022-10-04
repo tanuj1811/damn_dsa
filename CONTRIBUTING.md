@@ -16,9 +16,14 @@ For an individual module, it is important to record <br>
 
 
 ## Steps For Contribution
+    
+    Fork this repo
+    Star this repo
+    
+    1. You have to found what  you  contribute (like in this repo contribute an algo which is not present) or Go to issue
+       section make commit in the issue that you can solve 
+       ( like : I think I can help in this issue.
+        @tanuj1811, I would really appreciate it if you could assign me this issue with Hacktoberfest tag so that can I can start contributing to this repo.
+        Thank you and have a great Hacktoberfest.)
+    2. Then make PR. I'll approved it
 
-    1. Fork this repo
-    2. Star this repo
-    3. Build Successfully on Local Machine
-    4. Commit the code
-    5. Make pull request
