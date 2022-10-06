@@ -1,5 +1,6 @@
 #### official site will be soon ready
 
+***This repo is contains important questions and algo's for interview preparation. So, try to mention ``throught process or instution`` before writing code.***
 
 ## Follow these steps to Contribute
 
