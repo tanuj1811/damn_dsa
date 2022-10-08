@@ -40,16 +40,19 @@ Follow up the syntax mention in issue section and delete the rest of comments.
     # Problem Statement
     <!-- Write up here -->
 
+<!--
       ## About Problem 
        Difficulty : <!--Easy | Medium | Hard --><br/>
-    <!--    Problem link: https://github.com/tanuj1811  <br/>   -->
-    <!--    Genre : DSA <br/> -->
+       Problem link: https://github.com/tanuj1811  <br/>  
+     -->
 
 
-    <!--   Not mandatory, only if you like to add  else Delete-->
+    <!--Not mandatory, only if you like to add  else Delete
 
       ## Intution 
       ## Throught Process
+      
+      -->
 
       ## Code 
     ``` <-- Write your Programing Language Name-->
