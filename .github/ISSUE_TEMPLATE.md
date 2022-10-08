@@ -2,7 +2,7 @@
 
 <!--Required Information-->
 
-**What is the issue?**
+**This issue is about: **
 <!-- choose one by changing [ ] to [x] -->
 - [ ] New algorithm
 - [ ] Update to an existing algorithm
